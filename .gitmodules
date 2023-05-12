@@ -1,0 +1,12 @@
+[submodule "vendor/ocaml-websocket"]
+	path = vendor/ocaml-websocket
+	url = https://github.com/patricoferris/ocaml-websocket
+[submodule "vendor/ocaml-cohttp"]
+	path = vendor/ocaml-cohttp
+	url = https://github.com/patricoferris/ocaml-cohttp
+[submodule "vendor/ppx_deriving_brr"]
+	path = vendor/ppx_deriving_brr
+	url = https://github.com/patricoferris/ppx_deriving_brr
+[submodule "vendor/eio"]
+	path = vendor/eio
+	url = https://github.com/patricoferris/eio

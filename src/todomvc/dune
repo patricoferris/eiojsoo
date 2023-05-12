@@ -1,0 +1,11 @@
+(executable
+ (name main)
+ (modes js)
+ (js_of_ocaml (flags --enable effects))
+ (preprocess (pps ppx_deriving_brr))
+ (libraries eio_browser))
+
+(rule
+  (deps main.bc.js index.html)
+  (target index.js)
+  (action (copy main.bc.js index.js)))

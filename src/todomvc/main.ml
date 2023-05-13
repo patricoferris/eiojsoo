@@ -1,4 +1,13 @@
-(* Port of https://github.com/tastejs/todomvc/blob/gh-pages/examples/js_of_ocaml/todomvc.ml *)
+(* Port of https://github.com/tastejs/todomvc/blob/gh-pages/examples/js_of_ocaml/todomvc.ml
+
+   WARNING:
+
+   This is acutally a pretty poor example of using Eio in the browser as we simply
+   attach fibers to a global switch which means the fibers outlive the component on the
+   screen. A better way would be to have switches exists whilst the component is on the screen.
+
+   An even better method would be to just use event listeners in this case :P
+*)
 open Brr
 open Brr_io
 open Eio

@@ -2,7 +2,7 @@ open Brr
 open Brr_io
 open Eio
 
-module Ws :sig
+module Websocket :sig
   type t
   (** A websocket *)
 
@@ -46,13 +46,13 @@ let () =
     Eio_browser.run @@ fun () ->
     Switch.run @@ fun sw ->
     let app = Document.find_el_by_id G.document (Jstr.v "app") |> Option.get in
-    let ws = Ws.create ~sw (Jstr.v "ws://localhost:7777/ping") in
+    let ws = Websocket.create ~sw (Jstr.v "ws://localhost:7777/ping") in
     Fiber.fork ~sw (fun () ->
       while true do
-        let msg : Jstr.t = Ws.recv ws |> Message.Ev.data in
+        let msg : Jstr.t = Websocket.recv ws |> Message.Ev.data in
         El.append_children app [ El.p [ El.txt' "[RECV]"; El.txt msg ] ];
         Eio_browser.Timeout.sleep ~ms:1000;
-        Ws.send ws msg
+        Websocket.send ws msg
       done
     )
   in
